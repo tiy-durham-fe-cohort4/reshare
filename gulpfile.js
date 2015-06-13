@@ -30,8 +30,11 @@ var src = {
 
 // The default task is what runs when you type 'gulp' in the terminal
 gulp.task('default', ['clean'], function () {
-  return gulp.start('html', 'img', 'font', 'js:views', 'js:vendor', 'js', 'scss', 'watch', 'reload', 'serve');
+  return gulp.start('build', 'watch', 'reload', 'serve');
 });
+
+// Build the assets and deploy them to destination
+gulp.task('build', ['html', 'img', 'font', 'js:views', 'js:vendor', 'js', 'scss']);
 
 // Serve is a name I made up. You could call it 'dostuff' or whatever.
 // The task starts a connect server on port 8000 if you go to
