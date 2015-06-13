@@ -1,0 +1,25 @@
+<h1>Users</h1>
+
+<form class="new-users-form">
+  <input name="userId" placeholder="GitHub username">
+  <div class="select">
+    <select name="role">
+      <option value="admin">
+        Admin
+      </option>
+      <option value="user">
+        User
+      </option>
+    </select>
+  </div>
+  <button>+ Add User</button>
+</form>
+
+<ul class="users stack-list">
+  <% _.chain(m.users).each(function (user) { %>
+    <li class="user stack-list-item">
+      <a class="user-id" href="#/users/<%- user.userId %>"><%- user.userId %></a>
+      <button class="remove-user btn btn-remove" data-id="<%- user.userId %>" type="button">X</button>
+    </li>
+  <% }) %>
+</ul>

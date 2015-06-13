@@ -1,0 +1,22 @@
+$medium-width: 768px;
+$big-width: 1024px;
+
+@mixin small-screen {
+  @media (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin big-screen {
+  @media (min-width: #{$medium-width}) {
+    @content;
+  }
+}
+
+@function tint($color, $percentage) {
+  @return mix(#fff, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(#000, $color, $percentage);
+}

@@ -1,0 +1,24 @@
+.main-content {
+  padding: 2em;
+}
+
+.main-nav {
+  background: $accent-bg-color;
+  color: $accent-fg-color;
+  padding: 0 2em;
+}
+
+.main-nav-link {
+  display: inline-block;
+  padding: 1em 1em;
+  color: inherit;
+}
+
+.main-nav-link:hover {
+  background: $alt-accent-bg-color;
+  color: $alt-accent-fg-color;
+}
+
+.main-nav-link.active {
+  background: shade($accent-bg-color, 20);
+}
