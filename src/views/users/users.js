@@ -4,6 +4,7 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 var template = require('../template');
 var handleError = require('../../util/handle-error');
+var formToObj = require('form-to-obj');
 
 module.exports = Backbone.View.extend({
   template: template('users/users'),
@@ -34,10 +35,7 @@ module.exports = Backbone.View.extend({
   addUser: function (e) {
     e.preventDefault();
 
-    var user = {
-      userId: this.$(':input[name=userId]').val(),
-      role: this.$(':input[name=role]').val()
-    };
+    var user = formToObj(e.target);
     
     this.model.create(user, handleError());
   },
