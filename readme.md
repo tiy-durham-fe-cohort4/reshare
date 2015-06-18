@@ -5,7 +5,7 @@ Reshare is a TIY homework assignment.
 ## Description
 
 Reshare is a project that allows users to share, vote, tag, and comment on
-resources. It's like news.ycombinator.com, except with a focus on sharing
+resources. It's like [news.ycombinator.com](https://news.ycombinator.com/), except with a focus on sharing
 developer tools.
 
 ## Getting up and running
@@ -13,7 +13,7 @@ developer tools.
 You may want to fork this repo instead of just copying it. That way, if I make
 bug fixes to the API (highly likely), you can pull them down pretty easily.
 
-After you've gotten the repo, you'll need to npm install as per usual.
+After you've gotten the repo, you'll need to run `npm install` as per usual.
 
 This can't be deployed to GitHub pages, either, since it is a server-app. We'll
 worry about deploying it later, and we'll probably do it together in class.
@@ -31,6 +31,7 @@ and GITHUB_CLIENT_SECRET:
     GITHUB_CLIENT_SECRET=k2hk2jh35kj2h35kj23h5kj2h435k2
     APP_SUPER_ADMIN=chrisdavies
     SESSION_SECRET=topsecretsessionkey
+    HOST_NAME=http://localhost:3000
 
 To get a client ID and client secret, you'll need to register your
 application by going here:
@@ -63,9 +64,9 @@ Find this line:
 
     APP_SUPER_ADMIN=chrisdavies
 
-And change chrisdavies to be your GitHub username.
+And change `chrisdavies` to be your GitHub username.
 
-Admins add other admins via the API. They can also do some tasks that other
+Admins can add other admins via the API. They can also do some tasks that other
 users can't, such as disabling user accounts.
 
 ### Persistence
@@ -118,7 +119,7 @@ Returns a list of users, e.g.
 
 #### Get currently logged in user:
 
-    GET /api/users/me
+    GET /api/currentuser
 
 Returns a single user, e.g.
 
@@ -127,6 +128,8 @@ Returns a single user, e.g.
       userId: 'githubid',
       role: 'user'
     }
+
+If the user is logged in, otherwise, gives an unauthorized error.
 
 #### Get a single user by id:
 
